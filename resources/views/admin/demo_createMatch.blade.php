@@ -4,15 +4,14 @@
 <section id="main-content">
             <section class="wrapper">
                 <h3 ><i class="fa fa-angle-right" ></i> Create a new match </h3>
+            <form style="float: left" method = "post" action="{{ url('admin/hiddenMatch/create') }}">
+                {{ csrf_field() }}     
                 <div class="row mt">
                     <div class="col-lg-12">
                         <!-- <div class="content-panel"> -->
-                        <form method="post" action="{{ url('admin/hiddenMatch/create') }}">
-                                {{ csrf_field() }}
                             <h4 class="text-center"><i class="fa fa-angle-right"></i>Match</h4>
-                            
-                            <div class="row mt">
 
+                            <div class="row mt">
                                 <div class="col-lg-6"><!-- home team -->
                                     <h4 class="text-center"> <b class="text-center">Home team</b></h4>
                                     <div class="col-lg-6 col-lg-offset-3">
@@ -110,18 +109,17 @@
                                 </div>
                             </div>
 
-
                          <!--    </div> -->
                            
 
 
-                        </form>
+                        
                        <!--  </div> --><!-- /content-panel -->
                     </div><!-- /col-lg-4 -->            
                 </div><!-- /row -->
 
 
-
+            </form>
             </section><! --/wrapper -->
         </section><!-- /MAIN CONTENT -->
 @endsection

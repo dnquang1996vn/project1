@@ -28,7 +28,7 @@
 
            
             <li class="sub-menu">
-                <a href="javascript:;" >
+                <a href = {{route('showHiddenMatch')}}>
                     <i class="fa fa-dollar"></i>
                     <span>Hidden matches</span>
                 </a>

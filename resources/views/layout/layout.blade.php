@@ -8,6 +8,7 @@
         <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>@yield('title')</title>
+        
 
         <!-- Bootstrap core CSS -->
         <link href="{{ asset('css/bootstrap.css') }}"rel="stylesheet">

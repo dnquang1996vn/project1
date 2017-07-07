@@ -15,8 +15,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('header',function(){
-	return view('user.finishingBet');
+    return view('admin.detailMatch');
 });
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// Admin
+    
+
+
+    //hidden match
+Route::get('admin/hiddenMatch','Admin\HiddenMatchController@showHiddenMatch')->name('showHiddenMatch');    
+Route::get('admin/hiddenMatch/create','Admin\HiddenMatchController@showCreateForm')->name('showCreateForm');                   
+Route::post('admin/hiddenMatch/create','Admin\HiddenMatchController@createNewMatch');
+
+Route::post('admin/hiddenMatch/delete','Admin\HiddenMatchController@deleteHiddenMatch');                   
+Route::post('admin/hiddenMatch/public','Admin\HiddenMatchController@publicHiddenMatch');                  
+
+
+Route::resource('admin','HiddenMatchAdminController');
