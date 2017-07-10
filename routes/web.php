@@ -28,11 +28,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 
     //hidden match
 Route::get('admin/hiddenMatch','Admin\HiddenMatchController@showHiddenMatch')->name('showHiddenMatch');    
-Route::get('admin/hiddenMatch/create','Admin\HiddenMatchController@showCreateForm')->name('showCreateForm');                   
+Route::get('admin/hiddenMatch/create','Admin\HiddenMatchController@showCreateForm')->name('showCreateForm');
 Route::post('admin/hiddenMatch/create','Admin\HiddenMatchController@createNewMatch');
+Route::post('admin/hiddenMatch/delete','Admin\HiddenMatchController@deleteHiddenMatch'); 
+Route::post('admin/hiddenMatch/public','Admin\HiddenMatchController@publicHiddenMatch'); 
+Route::get('admin/hiddenMatch/{edit_id}/edit','Admin\HiddenMatchController@showEditForm')->name('showEditForm');
+Route::post('admin/hiddenMatch/{edit_id}/edit','Admin\HiddenMatchController@editMatch')->name('editMatch');
 
-Route::post('admin/hiddenMatch/delete','Admin\HiddenMatchController@deleteHiddenMatch');                   
-Route::post('admin/hiddenMatch/public','Admin\HiddenMatchController@publicHiddenMatch');                  
+	//public match
+Route::get('admin/publicMatch','Admin\PublicMatchController@showPublicMatch')->name('showPublicMatch');
+Route::get('admin/publicMatch/{id}/update',"Admin\PublicMatchController@showUpdateForm")->name('showUpdateForm');
+Route::post('admin/publicMatch/{id}/update',"Admin\PublicMatchController@updateScore")->name('updateScore');
+Route::post('admin/publicMatch/delete',"Admin\PublicMatchController@deletePublicMatch")->name('deletePublicMatch');
 
 
-Route::resource('admin','HiddenMatchAdminController');
+

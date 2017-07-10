@@ -8,7 +8,9 @@
                     <div class="col-lg-12">
                         <!-- <div class="content-panel"> -->
                             <h4 class="text-center">Match</h4>
-                            
+                            <form method="post" action="{{ route('updateScore',$updateMatch->id) }}">
+                                {{ csrf_field() }}
+                           
                             <div class="row mt">
                                 <div class="col-lg-6"><!-- home team -->
                                     <h4 class="text-center"> <b class="text-center">Home team</b></h4>
@@ -16,7 +18,7 @@
                                         <div class="text-center">
                                             <div class="row"> 
                                             <h3 style="color: red">
-                                                Manchester city
+                                                {{$updateMatch->home_team_name}}
                                             </h3>
                                             </div>
                                         </div> 
@@ -35,7 +37,7 @@
                                         <div class="text-center">
                                             <div class="row"> 
                                             <h3 style="color: red">
-                                                Real Marrid
+                                                {{$updateMatch->away_team_name}}
                                             </h3>
                                             </div>
                                         </div> 
@@ -57,10 +59,10 @@
                                 <div class="form-group">
                                     <div class="row mt">
                                     <div class="col-lg-2 col-lg-offset-4">
-                                        <input name="homeRate" class="form-control" type="text">
+                                        <input name="homeScore" min = "0" class="form-control" type="number">
                                     </div>
                                      <div class="col-lg-2">
-                                        <input name="homeRate" class="form-control" type="text">
+                                        <input name="awayScore" min = "0" class="form-control" type="number">
                                     </div>
 
                                     <br>
@@ -85,10 +87,7 @@
                             </div>
 
                          <!--    </div> -->
-                           
-
-
-                        
+                            </form>
                        <!--  </div> --><!-- /content-panel -->
                     </div><!-- /col-lg-4 -->            
                 </div><!-- /row -->

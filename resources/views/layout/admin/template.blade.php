@@ -5,6 +5,7 @@
 
 @section('sidebar')
 <aside>
+ {{ csrf_field() }}
     <div id="sidebar"  class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
@@ -20,7 +21,7 @@
             </li>
 
             <li class="sub-menu">
-                <a href="javascript:;" >
+                <a href= {{route('showCreateForm')}} >
                     <i class="fa fa-user"></i>
                     <span>Create a match</span>
                 </a>
@@ -34,7 +35,7 @@
                 </a>
             </li>
             <li class="sub-menu">
-                <a href="javascript:;" >
+                <a href= {{route('showPublicMatch')}} >
                     <i class="fa fa-medkit"></i>
                     <span>Public matches</span>
                 </a>

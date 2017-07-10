@@ -7,6 +7,11 @@
                 <div class="row mt">
                     <div class="col-lg-12">
                         <div class="content-panel">
+                          @if (session('message'))
+                                <div class="alert alert-success text-center">
+                                <h2> {{ session('message') }} </h2>
+                                </div>
+                            @endif
                             <h4><i class="fa fa-angle-right"></i>List</h4>
                             <h4><i class="fa fa-angle-right"></i>total hidden matches:{{$hiddenMatches->count()}} </h4>
                             <a href={{route('showCreateForm')}}>
@@ -14,6 +19,7 @@
                                     <i class="fa fa-check "></i>create a new match
                                 </button>
                             </a>    
+                            
                             </form>
                             <table class="table table-hover table-striped table-advanced table-bordered"
                                    <thead>
@@ -45,7 +51,7 @@
                                         <th class="col-lg-0.5" class="numeric"> {{$hiddenMatch->away_rate}} </th>
                                         <th class="col-lg-2" class="numeric"> {{$hiddenMatch->starting_time}} </th>
                                         <th class="col-lg-2" class="numeric"> {{$hiddenMatch->finishing_time}} </th>
-                                        <th class="col-lg-2" class="pull-center"> {{$hiddenMatch->finishing_bet}} <br></th>
+                                        <th class="col-lg-2" class="pull-center"> {{$hiddenMatch->closing_bet}} <br></th>
                                     <!--     <th class="col-lg-2" class="pull-left"> League </th> -->
                                         <td>
                                         <form style="float: left;" method="post" action="{{ url('admin/hiddenMatch/delete') }}">
@@ -55,13 +61,12 @@
                                                 <i class="fa fa-trash-o "></i>delete
                                             </button>
                                         </form>
-                                        <form style="float: left"method="post" action="{{ url('admin/hiddenMatch/edit') }}">
-                                        {{ csrf_field() }}
-                                            <input name="public_id" value="{{$hiddenMatch->id}}" type="hidden">
-                                            <button class="btn btn-primary btn-xs">
+                                      
+                                           
+                                            <a href="/admin/hiddenMatch/{{ $hiddenMatch->id }}/edit"><button class="btn btn-primary btn-xs">
                                                 <i class="fa fa-pencil "></i>edit
-                                            </button>
-                                        </form>
+                                            </button></a>
+                                      
                                         <form style="float: left"method="post" action="{{ url('admin/hiddenMatch/public') }}">
                                         {{ csrf_field() }}
                                             <input name="public_id" value="{{$hiddenMatch->id}}" type="hidden">
